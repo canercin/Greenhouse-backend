@@ -37,7 +37,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .anyRequest().permitAll())
+                        .requestMatchers("/greenhouse/save").permitAll()
+                        .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/auth/signup").hasRole("ADMIN")
+                        .requestMatchers("/user").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
                 .authenticationProvider(authProvider())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtauthFilter, UsernamePasswordAuthenticationFilter.class)
