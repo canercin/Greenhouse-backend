@@ -1,5 +1,5 @@
 package dev.canercin.greenhouseiot.entities;
 
 public enum Role {
-    ADMIN, USER
+    ROLE_ADMIN, ROLE_USER
 }
