@@ -67,8 +67,13 @@ public class GreenhouseController {
         return this.greenHouseService.findAll();
     }
 
-    @GetMapping("/getTop10")
+    @GetMapping("/getLast10Record")
     public List<Greenhouse> getTop10GreenHouseData() {
         return this.greenHouseService.findTop10ByOrderByStateTimeAsc();
+    }
+
+    @GetMapping("/getLastRecord")
+    public Greenhouse getLastGreenHouseData() {
+        return this.greenHouseService.findTopByOrderByStateTimeAsc();
     }
 }

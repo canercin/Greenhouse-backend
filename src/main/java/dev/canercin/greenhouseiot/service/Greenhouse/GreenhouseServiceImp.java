@@ -28,12 +28,14 @@ public class GreenhouseServiceImp implements GreenhouseService {
     public List<Greenhouse> findAll() {
         return this.greenhouseRepository.findAll();
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public List<Greenhouse> findTop10ByOrderByStateTimeAsc() {
         return this.greenhouseRepository.findTop10ByOrderByStateTimeDesc();
     }
->>>>>>> 6670f8a (get last 10 record added)
+
+    @Override
+    public Greenhouse findTopByOrderByStateTimeAsc() {
+        return this.greenhouseRepository.findTopByOrderByStateTimeDesc();
+    }
 }

@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface GreenhouseRepository extends JpaRepository<Greenhouse, Long>{
     List<Greenhouse> findTop10ByOrderByStateTimeDesc();
-
+    Greenhouse findTopByOrderByStateTimeDesc();
 }
