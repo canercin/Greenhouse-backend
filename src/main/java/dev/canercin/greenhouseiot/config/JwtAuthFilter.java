@@ -14,21 +14,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6670f8a (get last 10 record added)
 import java.io.IOException;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
-<<<<<<< HEAD
+
     private JwtService jwtService;
     private UserService userService;
-=======
-    private final JwtService jwtService;
-    private final UserService userService;
->>>>>>> 6670f8a (get last 10 record added)
 
     @Autowired
     public JwtAuthFilter(JwtService jwtService, UserService userService) {

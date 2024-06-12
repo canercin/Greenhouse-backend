@@ -41,12 +41,9 @@ public class UserServiceImpl implements UserService {
             }
         };
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public void deleteUser(String id) {
         this.userRepository.deleteById(id);
     }
->>>>>>> 6670f8a (get last 10 record added)
 }

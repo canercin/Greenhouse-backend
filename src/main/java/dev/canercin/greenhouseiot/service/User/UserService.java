@@ -11,8 +11,5 @@ public interface UserService {
     List<User> findAll();
     User findByUsername(String username);
     UserDetailsService userDetailsService();
-<<<<<<< HEAD
-=======
     void deleteUser(String id);
->>>>>>> 6670f8a (get last 10 record added)
 }

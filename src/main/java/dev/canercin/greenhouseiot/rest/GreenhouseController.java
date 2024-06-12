@@ -22,7 +22,6 @@ public class GreenhouseController {
     /**
      * @param greenhouse Veri tabanına kaydedilecek sera verisi
      * @return Kaydedilen verinin HTTP 200 durum kodu ile dönüşü
-<<<<<<< HEAD
      * @apiNote id ve state_time alanları otomatik olarak eklenir.
      * @exampleRequest {
      *       "ambient_humidity": 65.2,
@@ -32,7 +31,6 @@ public class GreenhouseController {
      *       "ambient_temperature_asc": 25.6,
      *       "ambient_temperature_asf": 78.1,
      *       "water_level": 75.3
-=======
      * @apiNote id ve stateTime alanları otomatik olarak eklenir.
      * @exampleRequest {
      *       "humidity": 65.2,
@@ -42,7 +40,6 @@ public class GreenhouseController {
      *       "temperatureAsC": 25.6,
      *       "temperatureAsF": 78.1,
      *       "waterLevel": 75.3
->>>>>>> 6670f8a (get last 10 record added)
      *     }
      */
     @PostMapping("/save")
@@ -69,12 +66,9 @@ public class GreenhouseController {
     public List<Greenhouse> getGreenHouseData() {
         return this.greenHouseService.findAll();
     }
-<<<<<<< HEAD
-=======
 
     @GetMapping("/getTop10")
     public List<Greenhouse> getTop10GreenHouseData() {
         return this.greenHouseService.findTop10ByOrderByStateTimeAsc();
     }
->>>>>>> 6670f8a (get last 10 record added)
 }
