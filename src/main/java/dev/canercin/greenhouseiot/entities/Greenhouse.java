@@ -21,7 +21,10 @@ public class Greenhouse {
     @Column(name = "ambient_temperature_asC")
     private float temperatureAsC;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6670f8a (get last 10 record added)
     @Column(name = "ambient_temperature_asF")
     private float temperatureAsF;
 
@@ -39,8 +42,12 @@ public class Greenhouse {
 
     public Greenhouse() {
     }
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> 6670f8a (get last 10 record added)
     public Greenhouse(int id, float lightAmount, float temperatureAsC, float temperatureAsF, float humidity, float waterLevel, float soilMoisture, int operationType) {
         this.id = id;
         this.lightAmount = lightAmount;

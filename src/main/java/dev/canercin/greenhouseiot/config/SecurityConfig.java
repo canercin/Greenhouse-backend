@@ -37,6 +37,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
+<<<<<<< HEAD
+=======
+                        .requestMatchers("/greenhouse/getTop10").permitAll()
+>>>>>>> 6670f8a (get last 10 record added)
                         .requestMatchers("/greenhouse/save").permitAll()
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/auth/signup").hasRole("ADMIN")
