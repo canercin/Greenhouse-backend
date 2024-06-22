@@ -32,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
         User user = new User();
         user.setUsername(signupRequest.getEmail());
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
-        if (signupRequest.getRole().equalsIgnoreCase("admin")) {
+        if (signupRequest.getRole().equalsIgnoreCase("0")) {
             user.setRole(Role.ROLE_ADMIN);
         } else {
             user.setRole(Role.ROLE_USER);
