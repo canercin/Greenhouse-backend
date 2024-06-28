@@ -1,12 +1,15 @@
 package dev.canercin.greenhouseiot.rest;
 
+import dev.canercin.greenhouseiot.dto.GreenhouseDailyAverageDTO;
+import dev.canercin.greenhouseiot.dto.GreenhouseMonthlyAverageDTO;
+import dev.canercin.greenhouseiot.dto.GreenhouseWeeklyAverageDTO;
 import dev.canercin.greenhouseiot.entities.Greenhouse;
 import dev.canercin.greenhouseiot.service.Greenhouse.GreenhouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -75,5 +78,25 @@ public class GreenhouseController {
     @GetMapping("/getLastRecord")
     public Greenhouse getLastGreenHouseData() {
         return this.greenHouseService.findTopByOrderByStateTimeAsc();
+    }
+
+    @GetMapping("/daily-averages")
+    public ResponseEntity<List<GreenhouseDailyAverageDTO>> getDailyAverages(@RequestParam("date") String data) {
+        java.sql.Date date = java.sql.Date.valueOf(LocalDate.parse(data));
+        List<GreenhouseDailyAverageDTO> averages = greenHouseService.getDailyAverages(date);
+        return new ResponseEntity<>(averages, HttpStatus.OK);
+    }
+
+    @GetMapping("/weekly-averages")
+    public ResponseEntity<List<GreenhouseWeeklyAverageDTO>> getWeeklyAverages(@RequestParam("date") String data) {
+        java.sql.Date date = java.sql.Date.valueOf(LocalDate.parse(data));
+        List<GreenhouseWeeklyAverageDTO> averages = greenHouseService.getWeeklyAverages(date);
+        return new ResponseEntity<>(averages, HttpStatus.OK);
+    }
+
+    @GetMapping("/monthly-averages")
+    public ResponseEntity<List<GreenhouseMonthlyAverageDTO>> getMonthlyAverages(@RequestParam("year") int year, @RequestParam("month") int month) {
+        List<GreenhouseMonthlyAverageDTO> averages = greenHouseService.getMonthlyAverages(year, month);
+        return new ResponseEntity<>(averages, HttpStatus.OK);
     }
 }
